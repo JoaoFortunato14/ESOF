@@ -32,7 +32,7 @@
 **************************************/
 
 /* Número de objetos */
-int num_obj = 150;                             // nuvens e arvores 
+int num_obj = 150;
 
 GLfloat random_obj[150][3];
 GLfloat random_mont[60][3];
@@ -44,7 +44,7 @@ float angle = 0.0;
 float lx = 0.0f, lz = -1.0f, ly = 1.0f;
 
 /* Posição da camera */
-float x = 0.0f, z = 50.0f, y = 210.0f;
+float x = 0.0f, z = 50.0f, y = 100.0f;
 //float x = 0.0f, z =1100.0f, y = 825.0f;
 
 /**************************************
@@ -89,6 +89,8 @@ void random_objs()
   }
 }
 
+
+
 /* Função para desenhar solo */
 void desenhar_solo()
 {
@@ -97,7 +99,7 @@ void desenhar_solo()
   glBegin(GL_QUADS);
 
   glColor3f(0.0, 1.0, 0.0);
-  glVertex3f(-10000.0f, 100.0f, -10000.0f + z);
+  glVertex3f(-10000.0f, 0.0f, -10000.0f + z);
 
   glColor3f(0.0, 1.0, 0.0);
   glVertex3f(10000.0f, 0.0f, -10000.0f + z);
@@ -199,21 +201,79 @@ void desenhar_ceu()
   glDisable(GL_LIGHTING);
   glBegin(GL_QUADS);
 
+//Frente
   glColor3f(0.0, 0.6, 0.8);
-  glVertex3f(-5000.0f, -100000.0f, -5500.0f + z);
-  glVertex3f(-5000.0f, 300000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, -1000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, 3000.0f, -5500.0f + z);
 
   glColor3f(0.130, 0.280, 0.450);
-  glVertex3f(5000.0f, 300000.0f, -5500.0f + z);
-  glVertex3f(5000.0f, -100000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, 3000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, -1000.0f, -5500.0f + z);
+
+
+
+
+//Esquerda
+  glColor3f(0.130, 0.280, 0.450);
+  glVertex3f(-5000.0f, -10000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, 3000.0f, 5500.0f + z);
+
+    
+  glColor3f(0.0, 0.6, 0.8);
+  glVertex3f(-5000.0f, -10000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, 3000.0f, -5500.0f + z);
+
+
+//Tras
+  glColor3f(0.130, 0.280, 0.450);
+  glVertex3f(-5000.0f, -10000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, 3000.0f, 5500.0f + z);
+
+    
+  glColor3f(0.0, 0.6, 0.8);
+  glVertex3f(5000.0f, -10000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, 3000.0f, 5500.0f + z);
+
+
+//Direita
+  glColor3f(0.130, 0.280, 0.450);
+  glVertex3f(5000.0f, -10000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, 3000.0f, 5500.0f + z);
+
+    
+  glColor3f(0.0, 0.6, 0.8);
+  glVertex3f(5000.0f, -10000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, 3000.0f, -5500.0f + z);
 
   glEnd();
+  glEnable(GL_LIGHTING);
+}
+
+
+/* Função para desenhar a mira */
+
+void desenhar_mira(){
+
+  
+  glDisable(GL_LIGHTING);
+  
+  glPushMatrix();
+
+  glColor3f(0.0f, 0.0f, 0.0f);
+ 
+  glTranslated(30, 70, -400 + z);
+
+  glutSolidSphere(50, 30, 20);
+   
+  glPopMatrix();
   glEnable(GL_LIGHTING);
 }
 
 /* Função para desenhar o sol */
 void desenhar_sol()
 {
+  desenhar_mira();
+
   glDisable(GL_LIGHTING);
   glPushMatrix();
   glColor3f(1.0f, 1.0f, 0.0f);
@@ -221,6 +281,8 @@ void desenhar_sol()
   glutSolidSphere(50, 30, 20);
   glPopMatrix();
   glEnable(GL_LIGHTING);
+
+  
 }
 
 /* Funções para desenhar nuvens */
@@ -321,6 +383,10 @@ void desenhar_nuvens(float rZ)
     glPopMatrix();
   }
 }
+
+
+
+
 
 /* Funções para desenhar árvores */
 void arvores()
