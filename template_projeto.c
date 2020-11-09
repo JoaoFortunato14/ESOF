@@ -48,6 +48,8 @@ float x = 0.0f, z = 50.0f, y = 100.0f;
 //float x = 0.0f, z =1100.0f, y = 825.0f;
 
 
+int pos=-6230;
+
 
 /**************************************
 *** INICIALIZAÇÃO DO AMBIENTE OPENGL **
@@ -481,16 +483,24 @@ void display(void)
   desenhar_ceu();
   desenhar_sol();
 
-  if (z < -6200)
+   printf("variavel z %f",z);
+  if ( ((int)z%6230)==0 )
   {
-    desenhar_nuvens(-6000);
-    desenhar_arvores(-6000);
+    printf("entrei aqui");
+    pos=pos-2230;                                // tem de ser sempre multimro de -40mil
+                                                // aumentar o numero de objetos
   }
-  else
+
+  if(z<-6000){
+    desenhar_nuvens(pos);
+    desenhar_arvores(pos);
+  }
+    else
   {
     desenhar_nuvens(0);
     desenhar_arvores(0);
   }
+
 
   glutSwapBuffers();
 }
