@@ -47,6 +47,8 @@ float lx = 0.0f, lz = -1.0f, ly = 1.0f;
 float x = 0.0f, z = 50.0f, y = 100.0f;
 //float x = 0.0f, z =1100.0f, y = 825.0f;
 
+
+
 /**************************************
 *** INICIALIZAÇÃO DO AMBIENTE OPENGL **
 **************************************/
@@ -204,50 +206,49 @@ void desenhar_ceu()
 //Frente
   glColor3f(0.0, 0.6, 0.8);
   glVertex3f(-5000.0f, -1000.0f, -5500.0f + z);
-  glVertex3f(-5000.0f, 3000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, 4000.0f, -5500.0f + z);
 
   glColor3f(0.130, 0.280, 0.450);
-  glVertex3f(5000.0f, 3000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, 4000.0f, -5500.0f + z);
   glVertex3f(5000.0f, -1000.0f, -5500.0f + z);
-
-
 
 
 //Esquerda
   glColor3f(0.130, 0.280, 0.450);
-  glVertex3f(-5000.0f, -10000.0f, 5500.0f + z);
-  glVertex3f(-5000.0f, 3000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, -1000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, 4000.0f, 5500.0f + z);
 
-    
+
   glColor3f(0.0, 0.6, 0.8);
-  glVertex3f(-5000.0f, -10000.0f, -5500.0f + z);
-  glVertex3f(-5000.0f, 3000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, -1000.0f, -5500.0f + z);
+  glVertex3f(-5000.0f, 4000.0f, -5500.0f + z);
 
 
 //Tras
   glColor3f(0.130, 0.280, 0.450);
-  glVertex3f(-5000.0f, -10000.0f, 5500.0f + z);
-  glVertex3f(-5000.0f, 3000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, -1000.0f, 5500.0f + z);
+  glVertex3f(-5000.0f, 4000.0f, 5500.0f + z);
 
-    
+
   glColor3f(0.0, 0.6, 0.8);
-  glVertex3f(5000.0f, -10000.0f, 5500.0f + z);
-  glVertex3f(5000.0f, 3000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, -1000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, 4000.0f, 5500.0f + z);
 
 
 //Direita
   glColor3f(0.130, 0.280, 0.450);
-  glVertex3f(5000.0f, -10000.0f, 5500.0f + z);
-  glVertex3f(5000.0f, 3000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, -1000.0f, 5500.0f + z);
+  glVertex3f(5000.0f, 4000.0f, 5500.0f + z);
 
-    
+
   glColor3f(0.0, 0.6, 0.8);
-  glVertex3f(5000.0f, -10000.0f, -5500.0f + z);
-  glVertex3f(5000.0f, 3000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, -1000.0f, -5500.0f + z);
+  glVertex3f(5000.0f, 000.0f, -5500.0f + z);
 
   glEnd();
   glEnable(GL_LIGHTING);
 }
+
 
 
 /* Função para desenhar a mira */
@@ -261,9 +262,9 @@ void desenhar_mira(){
 
   glColor3f(0.0f, 0.0f, 0.0f);
  
-  glTranslated(30, 70, -400 + z);
+  glTranslated(x, y, -400 + z);
 
-  glutSolidSphere(50, 30, 20);
+  glutSolidSphere(5, 30, 10);
    
   glPopMatrix();
   glEnable(GL_LIGHTING);
@@ -444,6 +445,7 @@ void desenhar_arvores(float rZ)
   }
 }
 
+
 /**************************************
 ***** CALL BACKS DE JANELA/DESENHO ****
 **************************************/
@@ -554,6 +556,7 @@ void processSpecialKeys(int key, int xx, int yy)
 
   float fraction = 0.05f;
 
+
   switch (key)
   {
 
@@ -575,8 +578,20 @@ void processSpecialKeys(int key, int xx, int yy)
     lx -= lx * fraction;
     lz -= lz * fraction;
     break;
-  }
 
+
+  case GLUT_KEY_F1:
+    x+=100;
+    break;
+  
+ case GLUT_KEY_F2:
+    x-=100;
+    break;
+    
+
+
+  
+  }
   if (DEBUG)
     printf("Carregou na tecla %c\n", key);
 }
