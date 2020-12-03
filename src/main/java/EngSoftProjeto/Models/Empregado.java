@@ -56,7 +56,9 @@ public class Empregado {
     this.nome = nome;
   }
 
-  public Enum getCargo() {
+  public void setCargo(Cargo cargo){ this.cargo= cargo;}
+
+  public Cargo getCargo() {
     return cargo;
   }
 
