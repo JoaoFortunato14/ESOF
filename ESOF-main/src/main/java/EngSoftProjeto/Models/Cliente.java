@@ -21,27 +21,28 @@ public class Cliente {
 
 
 
-    public boolean consultarCustoProjeto( Projeto pj) {
+    public int consultarCustoProjeto( Projeto pj) {
     for(Projeto p: projetos){
       if(p.equals(pj)){
-        return true ;//pj.custoProjeto();
-
+        return pj.custoProjeto();
       }
+
+
     }
 
 
-    return false;
+    return 0;
   }
 
-  public boolean consultarDuracaoProjeto( Projeto pj) {
+  public int consultarDuracaoProjeto( Projeto pj) {
       for (Projeto p : projetos) {
           if (p.equals(pj)) {
-              return  true ; //pj.duracao();
+              return pj.duracao();
 
           }
 
       }
-      return false;
+      return 0;
   }
 
 

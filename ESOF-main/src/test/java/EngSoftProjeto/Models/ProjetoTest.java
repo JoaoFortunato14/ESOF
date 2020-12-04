@@ -30,7 +30,7 @@ class ProjetoTest {
 
         p1.tarefas.add(t);
 
-        assertTrue(p1.custoProjeto());
+        assertEquals(1,p1.custoProjeto());
 
 
 
@@ -62,6 +62,6 @@ class ProjetoTest {
         p1.tarefas.add(t);
 
 
-        assertTrue(p1.duracao());
+        assertEquals("20",p1.duracao()); // mudar para equals
     }
 }

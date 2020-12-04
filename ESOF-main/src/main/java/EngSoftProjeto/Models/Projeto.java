@@ -18,21 +18,21 @@ public class Projeto {
   public ArrayList<Tarefa> tarefas =new ArrayList<Tarefa>();
 
 
-  public boolean custoProjeto( ){
+  public int custoProjeto( ){
       int custo=0;
     for(Tarefa t: tarefas){
       custo+= t.custoTarefa();
 
     }
-    return true;//custo;
+    return custo;
   }
 
-  public boolean duracao() {
+  public int duracao() {
     int sumDur=0;
     for(Tarefa t: tarefas){
        sumDur+=t.getDuracao();
     }
-    return true;
+    return sumDur;
   }
 
   //Get's e Set's
