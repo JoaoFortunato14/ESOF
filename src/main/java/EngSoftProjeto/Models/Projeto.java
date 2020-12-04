@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -13,12 +14,26 @@ public class Projeto {
 
   @Id
   private String nome;
+  private Cliente cliente;
+  public ArrayList<Tarefa> tarefas =new ArrayList<Tarefa>();
 
-  public void custoProjeto( ) {
+  public int custoProjeto( ){
+    int custo=0;
 
+    for(Tarefa t: tarefas){
+      custo+= t.custoTarefa(this.duracao(), t.getEmpregado().getHoraValor());
+
+    }
+    return custo;
   }
 
-  public void duracao() {
+  public int duracao() {
+    int sumDur=0;
+
+    for(Tarefa t: tarefas){
+      sumDur+= t.getDuracao();
+    }
+    return sumDur;
   }
 
   //Get's e Set's

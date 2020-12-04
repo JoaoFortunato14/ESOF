@@ -20,10 +20,24 @@ public class Cliente {
   public  ArrayList<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
 
 
-  public void consultarCustoProjeto( Projeto pj) {
+  public int consultarCustoProjeto(Projeto pj) {
+    for (Projeto p : projetos) {
+      if (p.equals(pj)) {
+        return pj.custoProjeto();
+      }
+    }
+    return 0;
   }
 
-  public void consultarDuracaoProjeto( Projeto pj) {
+  public int consultarDuracaoProjeto( Projeto pj) {
+    for (Projeto p : projetos) {
+      if (p.equals(pj)) {
+        //return pj.duracao();
+
+      }
+
+    }
+    return 0;
   }
 
 
