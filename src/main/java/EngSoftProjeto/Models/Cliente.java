@@ -21,6 +21,7 @@ public class Cliente {
 
 
   public int consultarCustoProjeto(Projeto pj) {
+
     for (Projeto p : projetos) {
       if (p.equals(pj)) {
         return pj.custoProjeto();
@@ -29,11 +30,11 @@ public class Cliente {
     return 0;
   }
 
-  public int consultarDuracaoProjeto( Projeto pj) {
-    for (Projeto p : projetos) {
-      if (p.equals(pj)) {
-        //return pj.duracao();
+  public int consultarDuracaoProjeto(Projeto pj) {
 
+    for (Projeto p : projetos) {
+      if(p.equals(pj)) {
+        return pj.duracao();
       }
 
     }

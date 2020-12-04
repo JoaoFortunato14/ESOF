@@ -28,8 +28,8 @@ public class Projeto {
   }
 
   public int duracao() {
-    int sumDur=0;
 
+    int sumDur=0;
     for(Tarefa t: tarefas){
       sumDur+= t.getDuracao();
     }

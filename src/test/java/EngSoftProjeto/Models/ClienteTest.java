@@ -48,5 +48,32 @@ class ClienteTest {
     @Test
     void consultarDuracaoProjeto() {
 
+        Cliente cl= new Cliente();
+        cl.setNome("Brubru");
+        cl.setEmail("bruno99@gmail.com");
+
+        Empregado emp= new Empregado();
+        emp.setNome("Joao");
+        emp.setCargo(Cargo.DesenvolvedorJr);
+        emp.setHoraValor(emp.custo(emp.getCargo()));
+
+        Tarefa t= new Tarefa();
+        t.setDuracao(120);
+        t.setEmpregado(emp);
+        t.setId((long)2);
+
+        Tarefa t1= new Tarefa();
+        t1.setDuracao(60);
+        t1.setEmpregado(emp);
+        t1.setId((long)3);
+
+        Projeto p1= new Projeto();
+        p1.setNome("Projeto A");
+        cl.projetos.add(p1);
+        p1.tarefas.add(t);
+        p1.tarefas.add(t1);
+
+        assertEquals(180, cl.consultarDuracaoProjeto(p1));
+
     }
 }

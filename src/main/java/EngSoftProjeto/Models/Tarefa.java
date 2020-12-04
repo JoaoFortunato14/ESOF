@@ -22,7 +22,6 @@ public class Tarefa {
   public ArrayList<Projeto> projetos= new ArrayList<>();
 
 
-
   public int custoTarefa(Integer dur, Integer empValor) {
     int custo=0;
     //passa min para horas, consideramos minimo aceitável 60 min
