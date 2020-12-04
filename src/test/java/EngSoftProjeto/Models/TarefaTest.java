@@ -23,13 +23,11 @@ class TarefaTest {
 
         Tarefa tf2= new Tarefa();
         tf2.setId((long)3);
-        tf2.setDuracao(55);
+        tf2.setDuracao(180);
         tf2.setEmpregado(emp);
 
-
-        //Situaçoes hipotéticas, MUDAR TIPO DE RETORNO SE NECESSARIO NO METODO
-        /*assertTrue(tf.custoTarefa(tf.getDuracao(), tf.getEmpregado().custo(Cargo.DesenvolvedorJr)));
-        assertTrue(tf1.custoTarefa(tf1.getDuracao(), tf1.getEmpregado().custo(Cargo.AnalistaJr)));
-        assertFalse(tf2.custoTarefa(tf2.getDuracao(), tf2.getEmpregado().custo(Cargo.DesenvolvedorSr))); */
+        assertEquals(20,tf.custoTarefa(tf.getDuracao(), tf.getEmpregado().custo(Cargo.DesenvolvedorJr)));
+        assertEquals(20, tf1.custoTarefa(tf1.getDuracao(), tf1.getEmpregado().custo(Cargo.AnalistaJr)));
+        assertEquals(120,tf2.custoTarefa(tf2.getDuracao(), tf2.getEmpregado().custo(Cargo.DesenvolvedorSr)));
     }
 }

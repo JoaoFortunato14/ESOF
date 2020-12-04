@@ -17,9 +17,8 @@ class EmpregadoTest {
         emp2.setNome("Brunono");
         emp2.setCargo(Cargo.AnalistaSr);
 
-        //MUDAR INT PARA BOOLENA NO MÉTODO
-        /*assertTrue(emp1.custo(emp1.getCargo()));
-        assertTrue(emp2.custo(emp2.getCargo()));*/
+        assertEquals(10,emp1.custo(emp1.getCargo()));
+        assertEquals(80,emp2.custo(emp2.getCargo()) );
 
     }
 }

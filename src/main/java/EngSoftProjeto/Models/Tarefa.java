@@ -23,17 +23,13 @@ public class Tarefa {
 
 
 
-  public boolean custoTarefa(Integer dur, Integer empValor) {
+  public int custoTarefa(Integer dur, Integer empValor) {
     int custo=0;
     //passa min para horas, consideramos minimo aceitável 60 min
     int hora= dur/60;
     custo= hora * empValor;
 
-    if( custo == 0){
-      return false;
-    }else{
-      return true;
-    }
+    return custo;
   }
 
 
