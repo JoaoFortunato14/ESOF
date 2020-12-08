@@ -20,8 +20,7 @@ public class Cliente {
 
   private String nome;
 
-  @Transient
-  //@OneToMany(mappedBy = "cliente")
+  @OneToMany(mappedBy = "cliente")
   public  List<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
 
 

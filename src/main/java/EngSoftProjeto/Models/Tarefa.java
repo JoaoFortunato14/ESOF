@@ -4,10 +4,7 @@ import EngSoftProjeto.Models.Empregado;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +16,13 @@ public class Tarefa {
   @Id
   private Long id;
 
+  @OneToOne
   private Empregado empregado;
 
   private Integer duracao;  //duracao é minutos
 
-  @Transient
-  //@ManyToOne  //pq é que nao é possivel mapear tarefas??
-  public List<Projeto> projetos= new ArrayList<>();
+  @ManyToOne
+  private Projeto projeto;
 
 
   public int custoTarefa(Integer dur, Integer empValor) {

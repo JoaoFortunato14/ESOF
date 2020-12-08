@@ -1,5 +1,9 @@
 package EngSoftProjeto.Models;
 
+import javax.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
 public enum Cargo {
 
     DesenvolvedorJr(10), AnalistaJr(20), DesenvolvedorSr(40), AnalistaSr(80);

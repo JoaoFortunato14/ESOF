@@ -3,10 +3,7 @@ package EngSoftProjeto.Models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +15,13 @@ public class Empregado {
   @Id
   private String nome;
 
+  @Transient
   private Cargo cargo;
 
   private Integer horaValor;
 
-  @OneToMany
+  @OneToMany(mappedBy = "empregado")
   public List<Tarefa> tarefas= new ArrayList<>();
-
 
 
   //custo valor-hora de um empregado
@@ -49,7 +46,6 @@ public class Empregado {
 
         default:
           System.out.println("Cargo nao existente!\n");
-
     }
     return horaValor;
   }

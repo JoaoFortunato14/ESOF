@@ -16,11 +16,10 @@ public class Projeto {
   @Id
   private String nome;
 
-
-  //@ManyToOne
+  @OneToOne
   private Cliente cliente;
-  @Transient
-  //@OneToMany(mappedBy = "projeto")
+
+  @OneToMany(mappedBy = "projeto")
   public List<Tarefa> tarefas =new ArrayList<Tarefa>();
 
   public int custoProjeto( ){
