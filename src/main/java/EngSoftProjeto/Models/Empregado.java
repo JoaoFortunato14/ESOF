@@ -3,12 +3,16 @@ package EngSoftProjeto.Models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
-//@Entity
+@Entity
 public class Empregado {
 
   @Id
@@ -18,7 +22,8 @@ public class Empregado {
 
   private Integer horaValor;
 
-  private ArrayList<Tarefa> tarefas= new ArrayList<Tarefa>();
+  @OneToMany
+  public List<Tarefa> tarefas= new ArrayList<>();
 
 
 

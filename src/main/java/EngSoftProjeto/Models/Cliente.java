@@ -3,13 +3,16 @@ package EngSoftProjeto.Models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-//@Entity
+@Entity
 public class Cliente {
 
   @Id
@@ -17,7 +20,9 @@ public class Cliente {
 
   private String nome;
 
-  public  ArrayList<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
+  @Transient
+  //@OneToMany(mappedBy = "cliente")
+  public  List<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
 
 
   public int consultarCustoProjeto(Projeto pj) {
