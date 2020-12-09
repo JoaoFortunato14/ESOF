@@ -14,9 +14,12 @@ import java.util.List;
 public class Projeto {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
   private String nome;
 
-  @OneToOne
+  @ManyToOne
   private Cliente cliente;
 
   @OneToMany(mappedBy = "projeto")
@@ -50,5 +53,21 @@ public class Projeto {
     this.nome = nome;
   }
 
+    //Adicionar tarefa a lista
+    public void addTarefa(Tarefa tf)
+    {
+        if(!tarefas.contains(tf)){
+            tarefas.add(tf);
+            tf.setProjeto(this);
+        }
+    }
+
+    //Remover tarefa da lista
+    public void removeTarefa(Tarefa tf)
+    {
+        if(tarefas.contains(tf)){
+            tarefas.remove(tf);
+        }
+    }
 
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class Tarefa {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @OneToOne
@@ -59,4 +60,5 @@ public class Tarefa {
   public void setDuracao(Integer duracao) {
     this.duracao = duracao;
   }
+
 }

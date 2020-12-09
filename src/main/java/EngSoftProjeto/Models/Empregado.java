@@ -13,6 +13,9 @@ import java.util.List;
 public class Empregado {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
   private String nome;
 
   @Transient
@@ -68,6 +71,24 @@ public class Empregado {
 
   public Integer getHoraValor() {
     return horaValor;
+  }
+
+  //Adicionar tarefa a lista
+  public void addTarefa(Tarefa tf)
+  {
+    if(!tarefas.contains(tf)){
+      tarefas.add(tf);
+      tf.setEmpregado(this);
+    }
+  }
+
+  //Remover tarefa da lista
+  public void removeTarefa(Tarefa tf)
+  {
+    if(tarefas.contains(tf)){
+      tarefas.remove(tf);
+
+    }
   }
 
 }

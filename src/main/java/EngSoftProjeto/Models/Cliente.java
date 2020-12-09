@@ -3,10 +3,7 @@ package EngSoftProjeto.Models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +13,10 @@ import java.util.List;
 public class Cliente {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column(unique = true)
   private String email;  //tem que ser mail pq não há dois iguais
 
   private String nome;
@@ -69,5 +70,23 @@ public class Cliente {
 
   public void setProjetos(ArrayList<Projeto> projetos) {
     this.projetos = projetos;
+  }
+
+  //Adicionar a lista
+  public void addProjeto(Projeto p1) {
+    if(!projetos.contains(p1)){
+      projetos.add(p1);
+      p1.setCliente(this);
+    }
+  }
+
+  //Remover projeto da lista
+  public void removeProjeto(Projeto pj)
+  {
+    if(projetos.contains(pj)){
+      projetos.remove(pj);
+      //remover cliente do projeto;
+    }
+
   }
 }
