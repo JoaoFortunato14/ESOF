@@ -20,7 +20,7 @@ class EmpregadoRepositoryTest {
         Empregado emp = new Empregado();
         emp.setNome("Andre B");
         emp.setCargo(Cargo.DesenvolvedorJr);
-        emp.setHoraValor(10);
+        emp.custo(emp.getCargo());
 
         assertEquals(0, empregadoRepository.count());
 

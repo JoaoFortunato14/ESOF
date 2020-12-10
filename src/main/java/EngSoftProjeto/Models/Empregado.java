@@ -27,7 +27,7 @@ public class Empregado {
   public List<Tarefa> tarefas= new ArrayList<>();
 
 
-  //custo valor-hora de um empregado
+  //retorna valor-hora de um empregado
   public int custo(Cargo cg) {
 
     switch (cg){

@@ -33,7 +33,6 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        //sem os asserts
 
        /* Cliente */
 
@@ -45,22 +44,19 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         /* Projeto */
 
-        Cliente cl1= new Cliente();
-        cl1.setEmail("abcd@hohoh.com");
-        cl1.setNome("Joao B");
-
         Projeto p1 = new Projeto();
         p1.setNome("Projeto ESOF");
-        p1.setCliente(cl1);
+        p1.setCliente(cl);
+
 
         projetoRepository.save(p1);
 
-        /* Empregado */
+        /* Empregado    */
 
         Empregado emp = new Empregado();
         emp.setNome("Andre B");
         emp.setCargo(Cargo.DesenvolvedorJr);
-        emp.setHoraValor(10);
+        emp.custo(emp.getCargo());
 
         empregadoRepository.save(emp);
 
@@ -68,18 +64,12 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         /* Tarefa */
 
         Tarefa tf = new Tarefa();
-        Empregado emp1 = new Empregado();
-        emp1.setNome("Andre B");
-        emp1.setCargo(Cargo.DesenvolvedorJr);
-        emp1.setHoraValor(10);
 
         tf.setId(1L);
-        tf.setEmpregado(emp1);
+        tf.setEmpregado(emp);
         tf.setDuracao(60);
 
+
         tarefaRepository.save(tf);
-
-
-
     }
 }
