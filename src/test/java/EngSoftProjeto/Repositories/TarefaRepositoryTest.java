@@ -26,21 +26,25 @@ class TarefaRepositoryTest {
         Tarefa tf = new Tarefa();
         Empregado emp1 = new Empregado();
 
-        emp1.setId(1L);
+
         emp1.setNome("Andre B");
         emp1.setCargo(Cargo.DesenvolvedorJr);
         emp1.setHoraValor(10);
 
-        tf.setId(1L);
         tf.setEmpregado(emp1);
         tf.setDuracao(60);
 
-        emp1.addTarefa(tf);
 
         assertEquals(0, tarefaRepository.count());
         assertEquals(0, empregadoRepository.count());
 
         tarefaRepository.save(tf);
+        //empregadoRepository.save(emp1);
+
+        //só depois de haver tarefas no array,é que se as pode adicionar a empregado, pois vai comparar no array para ver se contem
+        emp1.addTarefa(tf);
+
+        //tarefaRepository.save(tf);
         empregadoRepository.save(emp1);
 
         assertEquals(1, tarefaRepository.count());

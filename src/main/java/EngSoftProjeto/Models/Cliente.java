@@ -85,7 +85,7 @@ public class Cliente {
   {
     if(projetos.contains(pj)){
       projetos.remove(pj);
-      //remover cliente do projeto;
+      projetos.add(null);
     }
 
   }

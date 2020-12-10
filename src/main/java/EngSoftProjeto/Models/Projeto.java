@@ -67,6 +67,7 @@ public class Projeto {
     {
         if(tarefas.contains(tf)){
             tarefas.remove(tf);
+            tarefas.add(null);
         }
     }
 

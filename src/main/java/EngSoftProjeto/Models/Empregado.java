@@ -87,7 +87,7 @@ public class Empregado {
   {
     if(tarefas.contains(tf)){
       tarefas.remove(tf);
-
+      tarefas.add(null);
     }
   }
 
