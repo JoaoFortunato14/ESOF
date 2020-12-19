@@ -17,7 +17,7 @@ public class Tarefa {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToOne
+  @ManyToOne
   private Empregado empregado;
 
   private Integer duracao;  //duracao é minutos

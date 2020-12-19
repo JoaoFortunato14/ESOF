@@ -12,6 +12,12 @@ class ClienteTest {
         cl.setNome("Joao");
         cl.setEmail("jp1234@gmail.com");
 
+        //Prints
+        String mail= cl.getEmail();
+        System.out.println(mail);
+
+
+
         Empregado emp=new Empregado();
         emp.setNome("Analistajunior");
         emp.setCargo(Cargo.DesenvolvedorJr);
@@ -22,26 +28,30 @@ class ClienteTest {
         emp1.setCargo(Cargo.AnalistaJr);
         emp1.setHoraValor(20);
 
-
         Tarefa t=new Tarefa();
         t.setDuracao(60);
         t.setEmpregado(emp1);
         long aux=12;
         t.setId(aux);
 
-
         Projeto p1= new Projeto();
         p1.setNome("Projeto A");
-        cl.projetos.add(p1);
-        p1.tarefas.add(t);
+        cl.addProjeto(p1);
+        p1.addTarefa(t);
 
         Projeto p2= new Projeto();
         p2.setNome("Projeto B");
-        cl.projetos.add(p2);
-        p2.tarefas.add(t);
+
+        //cl.addProjeto(p2);
+        assertEquals(0, cl.consultarCustoProjeto(p2));
+
+        p1.addTarefa(t);
+        assertEquals(20,cl.consultarCustoProjeto(p1));
+
+        p1.removeTarefa(t);
+        assertEquals(0, cl.consultarCustoProjeto(p1));
 
 
-        assertEquals(10,cl.consultarCustoProjeto(p1));  // usar o equals para testar
 
     }
 
@@ -67,13 +77,27 @@ class ClienteTest {
         t1.setEmpregado(emp);
         t1.setId((long)3);
 
+        Tarefa t2= new Tarefa();
+        t2.setDuracao(120);
+        t2.setEmpregado(emp);
+        t2.setId((long)4);
+
         Projeto p1= new Projeto();
         p1.setNome("Projeto A");
-        cl.projetos.add(p1);
-        p1.tarefas.add(t);
-        p1.tarefas.add(t1);
+        cl.addProjeto(p1);
+
+        p1.addTarefa(t);
+        p1.addTarefa(t1);
+
+        p1.addTarefa(t2);
+        p1.removeTarefa(t2);
 
         assertEquals(180, cl.consultarDuracaoProjeto(p1));
+
+        //PORQUE NAO COBRE AQUI?
+        cl.removeProjeto(p1);
+        assertEquals(0, cl.consultarDuracaoProjeto(p1));
+
 
     }
 }

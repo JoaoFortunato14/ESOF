@@ -6,7 +6,7 @@ import lombok.Setter;
 
 public enum Cargo {
 
-    DesenvolvedorJr(10), AnalistaJr(20), DesenvolvedorSr(40), AnalistaSr(80);
+    DesenvolvedorJr(10), AnalistaJr(20), DesenvolvedorSr(40), AnalistaSr(80), CEO(0);
 
     private int salarioHora;
 

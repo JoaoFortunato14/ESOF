@@ -30,7 +30,6 @@ public class Projeto {
 
     for(Tarefa t: tarefas){
       custo+= t.custoTarefa(this.duracao(), t.getEmpregado().getHoraValor());
-
     }
     return custo;
   }
@@ -53,6 +52,7 @@ public class Projeto {
     this.nome = nome;
   }
 
+
     //Adicionar tarefa a lista
     public void addTarefa(Tarefa tf)
     {
@@ -67,7 +67,6 @@ public class Projeto {
     {
         if(tarefas.contains(tf)){
             tarefas.remove(tf);
-            tarefas.add(null);
         }
     }
 

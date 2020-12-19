@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProjetoTest {
 
+
     @Test
     void custoProjeto() {
         Cliente cl= new Cliente();
@@ -15,7 +16,13 @@ class ProjetoTest {
         Projeto p1= new Projeto();
         p1.setNome("Projeto A");
         p1.setCliente(cl);
+        p1.setId(1L);
 
+        //Prints
+        String nome= p1.getNome();
+        System.out.println(nome);
+        Cliente clt= p1.getCliente();
+        System.out.println(clt.getNome());
 
         Empregado emp=new Empregado();
         emp.setNome("Analistajunior");
@@ -28,9 +35,11 @@ class ProjetoTest {
         long aux=12;
         t.setId(aux);
 
-        p1.tarefas.add(t);
-
+        p1.addTarefa(t);
         assertEquals(20,p1.custoProjeto());
+
+        p1.removeTarefa(t);
+        assertEquals(0, p1.custoProjeto());
     }
 
     @Test
@@ -54,9 +63,10 @@ class ProjetoTest {
         t.setEmpregado(emp);
         t.setId((long)12);
 
-        p1.tarefas.add(t);
-
-
+        p1.addTarefa(t);
         assertEquals(120, p1.duracao()); // mudar para equals
+
+        p1.removeTarefa(t);
+        assertEquals(0, p1.duracao());
     }
 }

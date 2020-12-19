@@ -48,7 +48,8 @@ public class Empregado {
         break;
 
         default:
-          System.out.println("Cargo nao existente!\n");
+          System.out.println("Cargo nao existente!");
+          return 0;
     }
     return horaValor;
   }
@@ -87,7 +88,6 @@ public class Empregado {
   {
     if(tarefas.contains(tf)){
       tarefas.remove(tf);
-      tarefas.add(null);
     }
   }
 

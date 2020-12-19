@@ -41,7 +41,6 @@ public class Cliente {
       if(p.equals(pj)) {
         return pj.duracao();
       }
-
     }
     return 0;
   }
@@ -64,14 +63,6 @@ public class Cliente {
     this.nome = nome;
   }
 
-  public List<Projeto> getProjetos() {
-    return projetos;
-  }
-
-  public void setProjetos(ArrayList<Projeto> projetos) {
-    this.projetos = projetos;
-  }
-
   //Adicionar a lista
   public void addProjeto(Projeto p1) {
     if(!projetos.contains(p1)){
@@ -85,8 +76,6 @@ public class Cliente {
   {
     if(projetos.contains(pj)){
       projetos.remove(pj);
-      projetos.add(null);
     }
-
   }
 }
