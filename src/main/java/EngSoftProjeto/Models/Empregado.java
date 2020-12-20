@@ -1,5 +1,6 @@
 package EngSoftProjeto.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ public class Empregado {
   private String nome;
 
   @Transient
+  @JsonIgnore
   private Cargo cargo;
 
   private Integer horaValor;

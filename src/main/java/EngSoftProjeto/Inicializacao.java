@@ -60,6 +60,20 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         empregadoRepository.save(emp);
 
+        Empregado emp1 = new Empregado();
+        emp1.setNome("Jose N");
+        emp1.setCargo(Cargo.AnalistaJr);
+        emp1.custo(emp.getCargo());
+
+        empregadoRepository.save(emp1);
+
+        Empregado emp2 = new Empregado();
+        emp2.setNome("Joao F");
+        emp2.setCargo(Cargo.DesenvolvedorSr);
+        emp2.custo(emp.getCargo());
+
+        empregadoRepository.save(emp2);
+
 
         /* Tarefa */
 
@@ -68,8 +82,20 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         tf.setId(1L);
         tf.setEmpregado(emp);
         tf.setDuracao(60);
-
-
         tarefaRepository.save(tf);
+
+        Tarefa tf1 = new Tarefa();
+
+        tf1.setId(2L);
+        tf1.setEmpregado(emp1);
+        tf1.setDuracao(80);
+        tarefaRepository.save(tf1);
+
+        Tarefa tf2 = new Tarefa();
+
+        tf2.setId(3L);
+        tf2.setEmpregado(emp2);
+        tf2.setDuracao(120);
+        tarefaRepository.save(tf2);
     }
 }

@@ -19,13 +19,16 @@ class TarefaRepositoryTest {
     @Autowired
     private EmpregadoRepository empregadoRepository;
 
+    @Autowired
+    private ProjetoRepository projetoRepository;
+
     @Test
     public void testeCriarTarefa(){
 
 
         Tarefa tf = new Tarefa();
-        Empregado emp1 = new Empregado();
 
+        Empregado emp1 = new Empregado();
         emp1.setNome("Andre B");
         emp1.setCargo(Cargo.DesenvolvedorJr);
         emp1.setHoraValor(10);

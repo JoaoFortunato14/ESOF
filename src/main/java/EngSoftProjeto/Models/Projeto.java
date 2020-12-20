@@ -23,7 +23,8 @@ public class Projeto {
   private Cliente cliente;
 
   @OneToMany(mappedBy = "projeto")
-  public List<Tarefa> tarefas =new ArrayList<Tarefa>();
+  public List<Tarefa> tarefas =new ArrayList<>();
+
 
   public int custoProjeto( ){
     int custo=0;

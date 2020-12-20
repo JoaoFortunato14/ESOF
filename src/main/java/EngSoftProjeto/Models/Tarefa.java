@@ -1,6 +1,7 @@
 package EngSoftProjeto.Models;
 
 import EngSoftProjeto.Models.Empregado;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,12 +19,14 @@ public class Tarefa {
   private Long id;
 
   @ManyToOne
+  @JsonIgnore
   private Empregado empregado;
 
   private Integer duracao;  //duracao é minutos
 
   @ManyToOne
   private Projeto projeto;
+
 
 
   public int custoTarefa(Integer dur, Integer empValor) {
