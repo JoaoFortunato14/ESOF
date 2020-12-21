@@ -38,6 +38,10 @@ public class Tarefa {
     return custo;
   }
 
+  /*
+  public String getProjetoNome(){
+    return projeto.getNome();
+  }*/
 
 
   //Get's e Set's

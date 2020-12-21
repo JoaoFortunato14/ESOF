@@ -49,7 +49,7 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         p1.setCliente(cl);
 
 
-        projetoRepository.save(p1);
+
 
         /* Empregado    */
 
@@ -97,5 +97,9 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         tf2.setEmpregado(emp2);
         tf2.setDuracao(120);
         tarefaRepository.save(tf2);
+
+        //Nome do Projeto de cada tarefa no localhost
+        p1.addTarefa(tf);
+        projetoRepository.save(p1);
     }
 }
