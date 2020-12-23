@@ -29,44 +29,14 @@ public class Tarefa {
 
 
 
-  public int custoTarefa(Integer dur, Integer empValor) {
+  public int custoTarefa() {
     int custo=0;
     //passa min para horas, consideramos minimo aceitável 60 min
-    int hora= dur/60;
-    custo= hora * empValor;
+    int hora= duracao/60;
+    custo= hora * empregado.getHoraValor();
 
     return custo;
   }
 
-  /*
-  public String getProjetoNome(){
-    return projeto.getNome();
-  }*/
-
-
-  //Get's e Set's
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Empregado getEmpregado() {
-    return empregado;
-  }
-
-  public void setEmpregado(Empregado empregado) {
-    this.empregado = empregado;
-  }
-
-  public Integer getDuracao() {
-    return duracao;
-  }
-
-  public void setDuracao(Integer duracao) {
-    this.duracao = duracao;
-  }
 
 }

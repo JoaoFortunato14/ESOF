@@ -1,6 +1,7 @@
 package EngSoftProjeto.Models;
 
 import EngSoftProjeto.Models.Cliente;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +12,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 public class Projeto {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @EqualsAndHashCode.Exclude
   private Long id;
 
   private String nome;
@@ -22,26 +25,26 @@ public class Projeto {
   @ManyToOne
   private Cliente cliente;
 
-  @OneToMany(mappedBy = "projeto")
+  @OneToMany(mappedBy = "projeto",cascade = CascadeType.ALL)
   public List<Tarefa> tarefas =new ArrayList<>();
 
 
   public int custoProjeto( ){
     int custo=0;
 
-    for(Tarefa t: tarefas){
-      custo+= t.custoTarefa(this.duracao(), t.getEmpregado().getHoraValor());
+    for(Tarefa tarefaActual: tarefas){
+      custo+= tarefaActual.custoTarefa();
     }
     return custo;
   }
 
   public int duracao() {
 
-    int sumDur=0;
+    int somatorioDuracao=0;
     for(Tarefa t: tarefas){
-      sumDur+= t.getDuracao();
+      somatorioDuracao+= t.getDuracao();
     }
-    return sumDur;
+    return somatorioDuracao;
   }
 
   //Get's e Set's
@@ -55,19 +58,19 @@ public class Projeto {
 
 
     //Adicionar tarefa a lista
-    public void addTarefa(Tarefa tf)
+    public void addTarefa(Tarefa tarefa)
     {
-        if(!tarefas.contains(tf)){
-            tarefas.add(tf);
-            tf.setProjeto(this);
+        if(!tarefas.contains(tarefa)){
+            tarefas.add(tarefa);
+            tarefa.setProjeto(this);
         }
     }
 
     //Remover tarefa da lista
-    public void removeTarefa(Tarefa tf)
+    public void removeTarefa(Tarefa tarefa)
     {
-        if(tarefas.contains(tf)){
-            tarefas.remove(tf);
+        if(tarefas.contains(tarefa)){
+            tarefas.remove(tarefa);
         }
     }
 

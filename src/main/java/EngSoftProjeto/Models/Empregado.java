@@ -1,5 +1,6 @@
 package EngSoftProjeto.Models;
 
+import EngSoftProjeto.Services.EmpregadoService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class Empregado {
   @OneToMany(mappedBy = "empregado")
   public List<Tarefa> tarefas= new ArrayList<>();
 
+  private EmpregadoService empregadoService;
 
   //retorna valor-hora de um empregado
   public int custo(Cargo cg) {

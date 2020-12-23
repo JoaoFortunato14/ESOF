@@ -50,7 +50,6 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
 
 
-
         /* Empregado    */
 
         Empregado emp = new Empregado();
@@ -79,27 +78,31 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
 
         Tarefa tf = new Tarefa();
 
-        tf.setId(1L);
+        //tf.setId(1L);
         tf.setEmpregado(emp);
         tf.setDuracao(60);
-        tarefaRepository.save(tf);
+       // tarefaRepository.save(tf);
 
         Tarefa tf1 = new Tarefa();
 
-        tf1.setId(2L);
-        tf1.setEmpregado(emp1);
+        //tf1.setId(2L);
+       tf1.setEmpregado(emp1);
         tf1.setDuracao(80);
-        tarefaRepository.save(tf1);
+    //    tarefaRepository.save(tf1);
 
         Tarefa tf2 = new Tarefa();
 
-        tf2.setId(3L);
+        //tf2.setId(3L);
         tf2.setEmpregado(emp2);
         tf2.setDuracao(120);
-        tarefaRepository.save(tf2);
+    //    tarefaRepository.save(tf2);
 
         //Nome do Projeto de cada tarefa no localhost
         p1.addTarefa(tf);
+        p1.addTarefa(tf1);
+        p1.addTarefa(tf2);
+
         projetoRepository.save(p1);
+
     }
 }

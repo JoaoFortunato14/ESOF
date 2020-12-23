@@ -25,6 +25,9 @@ public class Cliente {
   public  List<Projeto> projetos=new ArrayList<>();  //array de projetos de cada cliente
 
 
+
+
+
   public int consultarCustoProjeto(Projeto pj) {
 
     for (Projeto p : projetos) {
